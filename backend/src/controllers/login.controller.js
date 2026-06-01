@@ -24,6 +24,12 @@ const loginController = async(req,res) => {
             });
         }
 
+        if(error.message === 'DEBE INGRESAR EL MAIL Y EL PASS'){
+            res.status(401).json({
+                mensaje: 'Debe ingresar el email y el pass'
+            })
+        }
+
         res.status(500).json({
             mensaje: 'ERROR DEL SERVIDOR'
         })
