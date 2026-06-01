@@ -17,6 +17,10 @@ const logearUsuario = async(email,pass) => {
 
     const comprobarPassword =  await bcrypt.compare(pass,comprobarEmail.pass);
 
+    if(!comprobarEmail){
+        throw new Error('PASSWORD INCORRECTO');
+    }
+
     const token = jwt.sign(
         { id: comprobarEmail.id,
           rol: comprobarEmail.rol,
@@ -27,7 +31,6 @@ const logearUsuario = async(email,pass) => {
     )
 
     return token;
-
 }
 
 export {
