@@ -1,16 +1,28 @@
 import { logearUsuario } from '../services/login.service.js';
 
-const login = async(req,res) => {
+const loginController = async(req,res) => {
+    if(!req.body || Object.keys(req.body).length === 0){
+        return res.send('Debe mandar algo en el body');
+    }
+
     try{
         const {email,pass} = req.body;
 
         const usuarioLogeado = await logearUsuario(email,pass);
 
         res.status(200).json({
-            mensaje: 'Logeado con exito!'
+            mensaje: 'Logeado con exito!',
+            usuario: usuarioLogeado
+            
         });
 
     } catch(error){
+
+        if(error.message === 'EMAIL NO EXISTENTE'){
+            res.status(401).json({
+                mensaje: 'El email no existe'
+            });
+        }
 
         res.status(500).json({
             mensaje: 'ERROR DEL SERVIDOR'
@@ -19,4 +31,6 @@ const login = async(req,res) => {
     }
 }
 
-export {login};
+export {
+    loginController
+};
