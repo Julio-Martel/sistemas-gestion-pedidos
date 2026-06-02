@@ -4,14 +4,16 @@ const verificarEmail = async(email) => {
     const [resultado] = await db.query(`SELECT email FROM Usuarios 
         WHERE email = ?`,[email]);
 
-    if(resultado.length === 0){
-        throw new Error('EMAIL NO ENCONTRADO')
-    };
-
     return resultado;
 }
 
+const totalUsuarios = async() => {
+    const [resultado] = await db.query(`SELECT COUNT(*) FROM Usuarios `);
+
+    return resultado[0];
+}
 
 export {
-    verificarEmail
+    verificarEmail,
+    totalUsuarios
 };
