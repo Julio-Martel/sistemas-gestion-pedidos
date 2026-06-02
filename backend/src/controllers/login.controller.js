@@ -18,6 +18,13 @@ const loginController = async(req,res) => {
 
     } catch(error){
 
+        if(error.message === 'NO HAY USUARIOS'){
+            res.status(404).json({
+                mensaje: 'No hay usuarios en la base de datos'
+            })
+        }
+
+
         if(error.message === 'EMAIL NO EXISTENTE'){
             res.status(401).json({
                 mensaje: 'El email no existe'
