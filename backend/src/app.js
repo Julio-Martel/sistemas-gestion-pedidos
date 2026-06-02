@@ -6,8 +6,8 @@ const app = express();
 app.use(express.json());
 
 app.use('/login', loginRouter);
-app.use('/register', );
+/*app.use('/register', );
 app.use('/cliente', );
-app.use('/duenio', );
+app.use('/duenio', );*/
 
 export default app;
