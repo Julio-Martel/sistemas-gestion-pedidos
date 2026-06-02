@@ -1,4 +1,5 @@
+import app from "./app.js";
 
+PORT = 3000;
 
-PORT = 300;
-
+app.listen(PORT, () => console.log('Servidor Corriendo...'))
