@@ -13,8 +13,6 @@ const logearUsuario = async(email,pass) => {
         CORREGIR PORQUE SALE EL ERROR EN EL SERVIDOR
     
     */
-
-
     const cantidadUsuarios = await totalUsuarios;
 
     if(cantidadUsuarios === 0){
@@ -29,7 +27,7 @@ const logearUsuario = async(email,pass) => {
 
     const comprobarPassword =  await bcrypt.compare(pass,comprobarEmail.pass);
 
-    if(!comprobarEmail){
+    if(!comprobarPassword){
         throw new Error('PASSWORD INCORRECTO');
     }
 
