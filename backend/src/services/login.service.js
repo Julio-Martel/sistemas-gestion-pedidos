@@ -1,12 +1,24 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { verificarEmail } from '../models/login.model.js';
-
+import { totalUsuarios } from '../models/login.model.js';
 
 const logearUsuario = async(email,pass) => {
 
     if(!email || !pass){
          throw new Error('DEBE INGRESAR EL MAIL Y EL PASS');
+    }
+
+    /*
+        CORREGIR PORQUE SALE EL ERROR EN EL SERVIDOR
+    
+    */
+
+
+    const cantidadUsuarios = await totalUsuarios;
+
+    if(cantidadUsuarios === 0){
+        throw new Error('NO HAY USUARIOS');
     }
 
     const comprobarEmail = await verificarEmail(email);
