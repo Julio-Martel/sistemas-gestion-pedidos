@@ -9,11 +9,7 @@ const logearUsuario = async(email,pass) => {
          throw new Error('DEBE INGRESAR EL MAIL Y EL PASS');
     }
 
-    /*
-        CORREGIR PORQUE SALE EL ERROR EN EL SERVIDOR
-    
-    */
-    const cantidadUsuarios = await totalUsuarios;
+    const cantidadUsuarios = await totalUsuarios();
 
     if(cantidadUsuarios === 0){
         throw new Error('NO HAY USUARIOS');
