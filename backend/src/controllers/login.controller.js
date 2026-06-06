@@ -12,8 +12,7 @@ const loginController = async(req,res) => {
 
         res.status(200).json({
             mensaje: 'Logeado con exito!',
-            usuario: usuarioLogeado
-            
+            usuario: usuarioLogeado         
         });
 
     } catch(error){
@@ -37,8 +36,17 @@ const loginController = async(req,res) => {
             })
         }
 
+        console.log(error)
+
+        /*
+        VER Y SOLUCIONAR ESTE ERROR
+        data and hash arguments required
+        
+        */
+
         res.status(500).json({
-            mensaje: 'ERROR DEL SERVIDOR'
+            mensaje: 'ERROR DEL SERVIDOR',
+            verError: error
         })
     
     }
