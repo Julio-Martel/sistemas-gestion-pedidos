@@ -12,18 +12,16 @@ const registrarUsuario = async(data) => {
     }
 
     const emailDuplicado = await verificarEmailRepetido(data.email);
-
-    if(emailDuplicado !== undefined){
+    
+    if(emailDuplicado.length !== 0){
         throw new Error('EMAIL YA EXISTENTE');
     }
 
+    const hashedPass = await bcrypt.hash(data.pass,10);
 
+    const nuevoUsuario = await crearUsuario(data,hashedPass);
 
-
-
-
-
-
+    return nuevoUsuario;
 }
 
 export {
