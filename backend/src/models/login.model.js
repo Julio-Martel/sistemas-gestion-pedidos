@@ -8,9 +8,9 @@ const verificarEmail = async(email) => {
 }
 
 const totalUsuarios = async() => {
-    const [resultado] = await db.query(`SELECT COUNT(*) FROM Usuarios `);
+    const [resultado] = await db.query(`SELECT COUNT(*) AS cantidad FROM Usuarios `);
 
-    return resultado[0];
+    return resultado[0].cantidad;
 }
 
 export {
