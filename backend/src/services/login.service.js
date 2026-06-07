@@ -21,7 +21,14 @@ const logearUsuario = async(email,pass) => {
         throw new Error('EMAIL NO EXISTENTE');
     }
 
-    const comprobarPassword =  await bcrypt.compare(pass,comprobarEmail.pass);
+    /*
+        ARREGLAR ESTO, YA QUE LA CONTRASEÑA ME DA UNDEFINED
+    
+    */
+
+    console.log(pass, comprobarEmail.pass)
+
+    const comprobarPassword = bcrypt.compare(pass,comprobarEmail.pass);
 
     if(!comprobarPassword){
         throw new Error('PASSWORD INCORRECTO');
