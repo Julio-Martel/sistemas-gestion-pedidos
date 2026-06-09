@@ -1,10 +1,15 @@
 import db from '../config/db.js';
 
 const verificarEmail = async(email) => {
-    const [resultado] = await db.query(`SELECT email FROM Usuarios 
+    const [resultado] = await db.query(`SELECT * FROM Usuarios 
         WHERE email = ?`,[email]);
 
-    return resultado;
+
+        /*encontrar aqui el error*/
+
+        console.log('ahhh: ',resultado.pass)
+
+    return [resultado];
 }
 
 const totalUsuarios = async() => {
