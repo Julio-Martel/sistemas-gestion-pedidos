@@ -4,12 +4,7 @@ const verificarEmail = async(email) => {
     const [resultado] = await db.query(`SELECT * FROM Usuarios 
         WHERE email = ?`,[email]);
 
-
-        /*encontrar aqui el error*/
-
-        console.log('ahhh: ',resultado.pass)
-
-    return [resultado];
+    return resultado[0];
 }
 
 const totalUsuarios = async() => {
