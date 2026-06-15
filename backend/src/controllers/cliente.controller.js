@@ -2,8 +2,8 @@ import { obtenerTodosLosProductos } from "../services/cliente.service.js"
 
 const verProductos = async(req,res) => {
     try{
-        const todosLosProductos = await obtenerTodosLosProductos();
-
+        const todosLosProductos = await obtenerTodosLosProductos;
+        console.log(todosLosProductos) // COMPROBAR ESTO
         res.status(200).json({
             mensaje: 'Todos los productos',
             productos: todosLosProductos
