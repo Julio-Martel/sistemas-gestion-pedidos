@@ -1,6 +1,10 @@
-const verProductos = async() => {
+import { getProductos } from "../models/cliente.model.js"
+
+const obtenerTodosLosProductos = async() => {
 
 }
 
 
-export {verProductos}
+export {
+    obtenerTodosLosProductos    
+}
