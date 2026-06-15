@@ -36,14 +36,6 @@ const loginController = async(req,res) => {
             })
         }
 
-        console.log(error)
-
-        /*
-        VER Y SOLUCIONAR ESTE ERROR
-        data and hash arguments required
-        
-        */
-
         res.status(500).json({
             mensaje: 'ERROR DEL SERVIDOR',
             verError: error
