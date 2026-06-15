@@ -5,6 +5,6 @@ import { permisoCliente } from '../middlewares/auth.permisos.js';
 
 const clientesRoutes = express.Router();
 
-clientesRoutes.get(autenticarToken, permisoCliente, verProductos);
+clientesRoutes.get('/productos', autenticarToken, permisoCliente, verProductos);
 
 export default clientesRoutes;
