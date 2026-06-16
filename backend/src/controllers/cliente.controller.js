@@ -17,8 +17,7 @@ const verProductos = async(req,res) => {
         }
 
         return res.status(500).json({
-            mensaje: 'Error interno',
-            err: error
+            mensaje: 'Error interno'
         });        
     }
 }
