@@ -2,8 +2,8 @@ import { obtenerTodosLosProductos } from "../services/cliente.service.js"
 
 const verProductos = async(req,res) => {
     try{
-        const todosLosProductos = await obtenerTodosLosProductos;
-        console.log(todosLosProductos) // COMPROBAR ESTO
+        const todosLosProductos = await obtenerTodosLosProductos();
+
         res.status(200).json({
             mensaje: 'Todos los productos',
             productos: todosLosProductos
@@ -15,9 +15,14 @@ const verProductos = async(req,res) => {
                 mensaje: 'No hay productos en la base de datos'
             })
         }
+
+        return res.status(500).json({
+            mensaje: 'Error interno',
+            err: error
+        });        
     }
 }
 
 export {
     verProductos
-}
+} 
