@@ -23,14 +23,21 @@ const verProductos = async(req,res) => {
 }
 
 const crearPedido = async(req,res) => {
+    if(!req.body || Object.keys(req.body).length === 0){
+        req.send('No ha ingresado nada en el body');
+    }
+        
     const {fechaHora, id_cliente, id_tienda} = req.body;
     
     if(!fechaHora || !id_cliente || !id_tienda){
         req.send('Se deben mandar todos los datos');
     }
 
-
     try {
+        const pedido = await generacionDePedido(req.body);
+
+
+
 
     } catch(error){
 
