@@ -22,6 +22,12 @@ const verProductos = async(req,res) => {
     }
 }
 
+const crearPedido = async(req,res) => {
+
+}
+
+
 export {
-    verProductos
+    verProductos,
+    crearPedido
 } 
