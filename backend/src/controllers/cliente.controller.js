@@ -23,7 +23,11 @@ const verProductos = async(req,res) => {
 }
 
 const crearPedido = async(req,res) => {
+    try {
 
+    } catch(error){
+        
+    }
 }
 
 
