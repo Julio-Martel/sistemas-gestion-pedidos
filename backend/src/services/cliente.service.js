@@ -10,6 +10,13 @@ const obtenerTodosLosProductos = async() => {
     return productos; 
 }
 
+const generacionDePedido = async() => {
+
+}
+
+
+
 export {
-    obtenerTodosLosProductos    
+    obtenerTodosLosProductos,
+    generacionDePedido    
 }
