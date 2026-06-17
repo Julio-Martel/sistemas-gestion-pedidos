@@ -1,4 +1,4 @@
-import { obtenerTodosLosProductos } from "../services/cliente.service.js"
+import { obtenerTodosLosProductos, generacionDePedido } from "../services/cliente.service.js"
 
 const verProductos = async(req,res) => {
     try{
@@ -26,7 +26,7 @@ const crearPedido = async(req,res) => {
     try {
 
     } catch(error){
-        
+
     }
 }
 
