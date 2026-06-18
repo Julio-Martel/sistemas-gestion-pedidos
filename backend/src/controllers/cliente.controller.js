@@ -34,13 +34,23 @@ const crearPedido = async(req,res) => {
     }
 
     try {
-        const pedido = await generacionDePedido(req.body);
+        const pedido = await generacionDePedido(fechaHora,id_cliente,id_tienda);
 
-
-
+        res.status(200).json({
+            mensaje: 'Su ticket: ',
+            ticket: pedido
+        })        
 
     } catch(error){
+        if(error.message === 'EL CLIENTE O LA TIENDA NO EXISTEN'){
+            return res.status(404).json({
+                mensaje: 'El cliente o la tienda no existe'
+            })
+        }
 
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO'
+        })
     }
 }
 
