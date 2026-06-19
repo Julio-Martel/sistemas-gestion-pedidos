@@ -24,7 +24,7 @@ const verProductos = async(req,res) => {
 
 const crearPedido = async(req,res) => {
     if(!req.body || Object.keys(req.body).length === 0){
-        res.send('No ha ingresado nada en el body');
+        return res.send('No ha ingresado nada en el body');
     }
 
     console.log(req.body);
@@ -32,7 +32,7 @@ const crearPedido = async(req,res) => {
     const {fechaHora, id_cliente, id_tienda} = req.body;
     
     if(!fechaHora || !id_cliente || !id_tienda){
-        res.send('Se deben mandar todos los datos');
+        return res.send('Se deben mandar todos los datos');
     }
 
     try {
@@ -51,7 +51,8 @@ const crearPedido = async(req,res) => {
         }
 
         res.status(500).json({
-            mensaje: 'ERROR INTERNO'
+            mensaje: 'ERROR INTERNO',
+            err: error
         })
     }
 }
