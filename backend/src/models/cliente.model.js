@@ -27,8 +27,6 @@ const createPedido = async(data) => {
     return resultado;
 }
 
-
-
 export {
     getProductos,
     createPedido,
