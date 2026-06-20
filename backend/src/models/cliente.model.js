@@ -21,7 +21,7 @@ const getTienda = async(id_tienda) => {
 }
 
 const createPedido = async(data) => {
-    const [resultado] = await db.query(`INSERT INTO Pedidos(fechaHora, id_cliente, id_tienda)
+    const [resultado] = await db.query(`INSERT INTO Pedidos(fecha_hora, id_cliente, id_tienda)
         VALUES(?,?,?)`,[data.fechaHora, data.id_cliente, data.id_tienda]);
 
     return resultado;
