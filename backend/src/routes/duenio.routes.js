@@ -4,7 +4,7 @@ import { permisoDuenio } from '../middlewares/auth.permisos.js';
 
 const duenioRoutes = express.Router();
 
-duenioRoutes.post('tiendas/crear',autenticarToken, permisoDuenio /**/);
+duenioRoutes.post('tienda/crear',autenticarToken, permisoDuenio /**/);
 
 
 
