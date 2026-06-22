@@ -1,6 +1,5 @@
 import db from '../config/db.js';
 
-
 const createTienda = async(data) => {
     const [resultado] = await db.query(`INSERT INTO Tiendas(nombre,direccion,id_duenio,telefono)
         VALUES(?,?,?,?)`,
@@ -8,6 +7,8 @@ const createTienda = async(data) => {
     
     return resultado;
 }
+
+/*SE HA AGREGADO LA COMBINACION DE DOS COLUMNAS PARA EVITAR EL DUPLICADO DE TIENDAS*/
 
 export {
     createTienda
