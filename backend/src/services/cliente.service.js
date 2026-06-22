@@ -1,4 +1,4 @@
-import { getProductos } from "../models/cliente.model.js"
+import { getProductos, getCliente, getTienda, createPedido} from "../models/cliente.model.js"
 
 const obtenerTodosLosProductos = async() => {
     const productos = await getProductos();
@@ -10,8 +10,25 @@ const obtenerTodosLosProductos = async() => {
     return productos; 
 }
 
-const generacionDePedido = async() => {
+const generacionDePedido = async(fechaHora,id_cliente,id_tienda) => {
+    
+    const cliente = await getCliente(id_cliente);
+    
+    const tienda = await getTienda(id_tienda);
 
+    if(cliente.length === 0 && tienda.length === 0){
+        throw new Error(`EL CLIENTE O LA TIENDA NO EXISTEN`);
+    }
+
+    const data = {
+        fechaHora: fechaHora,
+        id_cliente: id_cliente,
+        id_tienda: id_tienda
+    }
+
+    const nuevoPedido = await createPedido(data);
+
+    return nuevoPedido;
 }
 
 
