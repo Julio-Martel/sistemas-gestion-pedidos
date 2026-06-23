@@ -8,8 +8,6 @@ const createTienda = async(data) => {
     return resultado;
 }
 
-/*SE HA AGREGADO LA COMBINACION DE DOS COLUMNAS PARA EVITAR EL DUPLICADO DE TIENDAS*/
-
 export {
     createTienda
 }
