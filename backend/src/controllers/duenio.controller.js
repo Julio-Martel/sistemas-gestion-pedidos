@@ -19,12 +19,10 @@ const crearTienda = async(req,res) => {
 
         res.status(500).json({
             mensaje: 'ERROR INTERNO',
-            err: error
+            error: error
         })
     }
 } 
-
-
 
 export {
     crearTienda
