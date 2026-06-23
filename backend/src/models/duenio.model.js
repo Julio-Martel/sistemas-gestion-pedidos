@@ -8,6 +8,15 @@ const createTienda = async(data) => {
     return resultado;
 }
 
+const buscarPorNombreOTelefonoDireccion = async(nombre, telefono, direccion) => {
+    const [resultado] = await db.query(`SELECT 1 FROM Tiendas WHERE nombre = ? AND telefono = ? AND direccion = ? LIMIT 1`
+        ,[nombre, telefono, direccion]);
+
+    return resultado;
+}
+
+
 export {
-    createTienda
+    createTienda,
+    buscarPorNombreOTelefonoDireccion
 }
