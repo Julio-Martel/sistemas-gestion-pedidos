@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 const autenticarToken = async(req,res,next) => {
     const headerToken = req.headers.authorization;
@@ -10,7 +10,7 @@ const autenticarToken = async(req,res,next) => {
     const ht = headerToken.split(' ')[1];
 
     try{
-        const decoded = await bcrypt.compare(ht,'secreto');
+        const decoded = jwt.verify(ht,'secreto');
 
         req.usuario = decoded;
 
