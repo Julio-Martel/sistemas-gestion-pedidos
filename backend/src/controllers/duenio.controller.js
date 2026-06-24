@@ -16,7 +16,30 @@ const crearTienda = async(req,res) => {
       })
    
     } catch(error){
+        if(error.message === 'Nombre requerido'){
+            return res.status(400).json({
+                mensaje: 'Nombre requerido'
+            })
+        }
 
+        if(error.message === 'Direccion requerida'){
+            return res.status(400).json({
+                mensaje: 'Direccion requerida'
+            })
+        }
+
+        if(error.message === 'Telefono requerido'){
+            return res.status(400).json({
+                mensaje: 'Telefono requerido'
+            })
+        }
+
+        if(error.message === 'Tienda ya existente'){
+            return res.status(400).json({
+                mensaje: 'Tienda ya existente'
+            })
+        }
+        
         res.status(500).json({
             mensaje: 'ERROR INTERNO',
             error: error
