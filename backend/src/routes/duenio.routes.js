@@ -6,7 +6,7 @@ import { crearTienda } from '../controllers/duenio.controller.js';
 const duenioRoutes = express.Router();
 
 duenioRoutes.post('/tienda/crear',autenticarToken, permisoDuenio, crearTienda);
-
+duenioRoutes.get('/tiendas', autenticarToken, permisoDuenio,/*HANDLER PARA QUE EL DUENIO VEA SUS TIENDAS*/);
 
 
 export default duenioRoutes;
