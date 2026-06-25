@@ -1,4 +1,4 @@
-import { createTienda, verificarTiendaConTelefonoONombre } from "../models/duenio.model.js";
+import { createTienda, buscarPorNombreOTelefonoDireccion } from "../models/duenio.model.js";
 
 const generacionDeTienda = async(data) => {
     if(!data.nombre){
@@ -13,9 +13,9 @@ const generacionDeTienda = async(data) => {
         throw new Error(`Telefono requerido`);
     }
   
-    const tiendaExistente = await verificarTiendaConTelefonoONombre(data.nombre, data.telefono);
+    const tiendaExistente = await buscarPorNombreOTelefonoDireccion(data.nombre, data.telefono, data.direccion);
 
-    if(tiendaExistente){
+    if(tiendaExistente === null){
         throw new Error(`Tienda ya existente`);
     }
 
@@ -27,3 +27,4 @@ const generacionDeTienda = async(data) => {
 export {
     generacionDeTienda
 }
+
