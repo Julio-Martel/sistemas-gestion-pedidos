@@ -47,6 +47,22 @@ const crearTienda = async(req,res) => {
     }
 } 
 
+const obtenerTiendas = async(req,res) => {
+    try {
+      const tiendas // agregar la funcion del service   
+
+
+
+    } catch(error){
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO',
+            error: error
+        })
+    }
+}
+
+
 export {
-    crearTienda
+    crearTienda,
+    obtenerTiendas
 }
