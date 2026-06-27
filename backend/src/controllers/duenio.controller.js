@@ -49,11 +49,20 @@ const crearTienda = async(req,res) => {
 
 const obtenerTiendas = async(req,res) => {
     try {
-      const tiendas // agregar la funcion del service   
-
-
-
+      const tiendas  = await obtenerTodasLasTiendas(req.usuario.id) 
+        
+      res.status(200).json({
+        mensaje: 'Todas sus tiendas',
+        tiendas: tiendas
+      })
+       
     } catch(error){
+        if(error.message === 'NO HAY TIENDAS SUYAS'){
+            return res.status(404).json({
+                mensaje: 'No se encontraron tiendas suyas'
+            })
+        }
+
         res.status(500).json({
             mensaje: 'ERROR INTERNO',
             error: error
