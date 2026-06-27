@@ -1,4 +1,4 @@
-import { generacionDeTienda } from "../services/duenio.service.js"
+import { generacionDeTienda, obtenerTodasLasTiendas} from "../services/duenio.service.js"
 
 const crearTienda = async(req,res) => {
     
