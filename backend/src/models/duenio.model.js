@@ -15,8 +15,16 @@ const buscarPorNombreOTelefonoDireccion = async(nombre, telefono, direccion) => 
     return resultado;
 }
 
+const getTiendas = async(id_data) => {
+    const [resultado] = await db.query(`SELECT * FROM Tiendas WHERE id_duenio = ?`,[id_data]);
+
+    return resultado;
+}
+
 
 export {
     createTienda,
-    buscarPorNombreOTelefonoDireccion
+    buscarPorNombreOTelefonoDireccion,
+    getTiendas
 }
+
