@@ -1,4 +1,4 @@
-import { createTienda, buscarPorNombreOTelefonoDireccion } from "../models/duenio.model.js";
+import { createTienda, buscarPorNombreOTelefonoDireccion, getTiendas } from "../models/duenio.model.js";
 
 const generacionDeTienda = async(data) => {
     if(!data.nombre){
@@ -24,7 +24,12 @@ const generacionDeTienda = async(data) => {
     return resultado;
 }
 
+const obtenerTodasLasTiendas  = async() => {
+
+}
+
 export {
-    generacionDeTienda
+    generacionDeTienda,
+    obtenerTodasLasTiendas
 }
 
