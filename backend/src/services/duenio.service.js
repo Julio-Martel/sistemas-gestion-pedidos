@@ -30,7 +30,6 @@ const obtenerTodasLasTiendas  = async(id_usuario) => {
     const tiendas = await getTiendas(id_usuario);
 
     if(tiendas.length === 0){
-        console.log('adasdasd')
         throw new Error(`NO HAY TIENDAS SUYAS`);
     }
 
