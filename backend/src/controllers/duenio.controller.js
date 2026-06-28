@@ -1,4 +1,4 @@
-import { generacionDeTienda, obtenerTodasLasTiendas} from "../services/duenio.service.js"
+import { generacionDeTienda, obtenerTodasLasTiendas, obtenerTiendaFiltrada} from "../services/duenio.service.js"
 
 const crearTienda = async(req,res) => {
     
@@ -72,13 +72,9 @@ const obtenerTiendas = async(req,res) => {
 
 const filtrarTiendas = async(req,res) => {
     try {
-        const id_tienda = req.params;
+        const tiendaFiltrada = //
 
-        /*
-        
-            AGREGAR PARTE DE LA LOGICA PARA OBTENER EL FILTRADO DE LAS TIENDAS SEGUN LO QUE ELIJA EL DUENIO
-        
-        */
+       
 
     } catch(error){
 
