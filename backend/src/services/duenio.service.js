@@ -24,8 +24,17 @@ const generacionDeTienda = async(data) => {
     return resultado;
 }
 
-const obtenerTodasLasTiendas  = async() => {
+const obtenerTodasLasTiendas  = async(id_usuario) => {
+    console.log(id_usuario);
 
+    const tiendas = await getTiendas(id_usuario);
+
+    if(tiendas.length === 0){
+        console.log('adasdasd')
+        throw new Error(`NO HAY TIENDAS SUYAS`);
+    }
+
+    return tiendas;
 }
 
 export {
