@@ -22,9 +22,18 @@ const getTiendas = async(id_data) => {
     return resultado;
 }
 
+const getTienda = async(id_tienda, id_duenio) => {
+    const [resultado] = await db.query(`SELECT * FROM Tiendas WHERE 
+        id = ? AND id_duenio = ?`,[id_tienda,id_tienda]);
+
+    return resultado;
+
+}
+
 export {
     createTienda,
     buscarPorNombreOTelefonoDireccion,
-    getTiendas
+    getTiendas,
+    getTienda
 }
 
