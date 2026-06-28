@@ -72,12 +72,29 @@ const obtenerTiendas = async(req,res) => {
 
 const filtrarTiendas = async(req,res) => {
     try {
-        const tiendaFiltrada = //
+        const tiendaFiltrada = await obtenerTiendaFiltrada(req.params, req.usuario.id);
 
-       
+       res.status(200).json({
+         mensaje: 'Resultado/s: ',
+         tiendaFiltrada: tiendaFiltrada
+       })
 
     } catch(error){
+        if(error.message === 'NO HAY TIENDAS SUYAS'){
+           return res.status(404).json({
+              mensaje: 'No hay tiendas suyas'
+           }) 
+        }
 
+        if(error.message === 'NO EXISTE ID DE TIENDA'){
+          return res.status(403).json({
+            mensaje: 'No existe ese ID'
+          })
+        }
+        
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO'
+        })
     }
 }
 
