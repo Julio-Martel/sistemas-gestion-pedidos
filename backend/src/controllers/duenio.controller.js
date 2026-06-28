@@ -70,6 +70,20 @@ const obtenerTiendas = async(req,res) => {
     }
 }
 
+const filtrarTiendas = async(req,res) => {
+    try {
+        const id_tienda = req.params;
+
+        /*
+        
+            AGREGAR PARTE DE LA LOGICA PARA OBTENER EL FILTRADO DE LAS TIENDAS SEGUN LO QUE ELIJA EL DUENIO
+        
+        */
+
+    } catch(error){
+
+    }
+}
 
 export {
     crearTienda,
