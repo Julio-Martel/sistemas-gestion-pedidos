@@ -38,7 +38,7 @@ const obtenerTodasLasTiendas  = async(id_usuario) => {
 
 const obtenerTiendaFiltrada = async(id_tienda,id_usuario) => {
 
-    const filtrado;
+    let filtrado;
 
     if(!id_tienda){
         const tiendas = await getTiendas(id_usuario);
