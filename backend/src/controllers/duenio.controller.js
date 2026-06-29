@@ -150,5 +150,6 @@ const crearProducto = async(req,res) => {
 export {
     crearTienda,
     obtenerTiendas,
-    filtrarTiendas
+    filtrarTiendas,
+    crearProducto
 }
