@@ -9,7 +9,7 @@ duenioRoutes.post('/tienda/crear',autenticarToken, permisoDuenio, crearTienda);
 duenioRoutes.get('/tiendas', autenticarToken, permisoDuenio, obtenerTiendas);
 duenioRoutes.get('/tiendas/:id', autenticarToken, permisoDuenio, filtrarTiendas);
 duenioRoutes.post('/productos/crear', autenticarToken, permisoDuenio, crearProducto);
-
+duenioRoutes.post('/productos/modificar', autenticarToken, permisoDuenio, /*HANDLER DE MODIFICAR STOCK DE PRODUCTO*/)
 
 
 
