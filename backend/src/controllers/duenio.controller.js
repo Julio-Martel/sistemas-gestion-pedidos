@@ -100,7 +100,11 @@ const filtrarTiendas = async(req,res) => {
 }
 
 const crearProducto = async(req,res) => {
+    try {
 
+    } catch(error){
+
+    }
 }
 
 export {
