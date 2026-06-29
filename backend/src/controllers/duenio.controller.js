@@ -99,6 +99,10 @@ const filtrarTiendas = async(req,res) => {
     }
 }
 
+const crearProducto = async(req,res) => {
+
+}
+
 export {
     crearTienda,
     obtenerTiendas,
