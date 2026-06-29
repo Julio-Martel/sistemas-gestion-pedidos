@@ -72,7 +72,8 @@ const obtenerTiendas = async(req,res) => {
 
 const filtrarTiendas = async(req,res) => {
     try {
-        const tiendaFiltrada = await obtenerTiendaFiltrada(req.params, req.usuario.id);
+        const {id_tienda} = req.params;
+        const tiendaFiltrada = await obtenerTiendaFiltrada(id_tienda, req.usuario.id);
 
        res.status(200).json({
          mensaje: 'Resultado/s: ',
