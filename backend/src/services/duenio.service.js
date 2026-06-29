@@ -1,4 +1,5 @@
-import { createTienda, buscarPorNombreOTelefonoDireccion, getTiendas, getTienda} from "../models/duenio.model.js";
+import { createTienda, buscarPorNombreOTelefonoDireccion, 
+    getTiendas, getTienda, verificarTienda, createProducto} from "../models/duenio.model.js";
 
 const generacionDeTienda = async(data) => {
     if(!data.nombre){
@@ -62,12 +63,41 @@ const obtenerTiendaFiltrada = async(id_tienda,id_usuario) => {
 }
 
 const generacionDeProducto = async(data) => {
-    
+    if(!data || Object.keys(data).length === 0){
+        throw new Error(`BODY VACIO`);
+    }
+
+    if(!data.nombre){
+        throw new Error(`INGRESE EL NOMBRE`)
+    }
+
+    if(!data.descripcion){
+        throw new Error(`INGRESE LA DESCRIPCION`)
+    }
+
+    if(!data.tipo){
+        throw new Error(`INGRESE EL TIPO`)
+    }
+
+    if(!data.id_tienda){
+        throw new error(`INGRESE ID DE TIENDA`)
+    }
+
+    const tiendaExistente = await verificarTienda(data.id_tienda);
+
+    if(tiendaExistente === null){
+        throw new Error(`TIENDA NO EXISTENTE`);
+    }
+
+    const productoNuevo = await createProducto(data);
+
+    return productoNuevo;
 }
 
 export {
     generacionDeTienda,
     obtenerTodasLasTiendas,
-    obtenerTiendaFiltrada
+    obtenerTiendaFiltrada,
+    generacionDeProducto
 }
 
