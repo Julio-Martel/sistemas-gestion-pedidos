@@ -1,4 +1,4 @@
-import { generacionDeTienda, obtenerTodasLasTiendas, obtenerTiendaFiltrada} from "../services/duenio.service.js"
+import { generacionDeTienda, obtenerTodasLasTiendas, obtenerTiendaFiltrada, generacionDeProducto} from "../services/duenio.service.js"
 
 const crearTienda = async(req,res) => {
     
@@ -100,10 +100,20 @@ const filtrarTiendas = async(req,res) => {
 }
 
 const crearProducto = async(req,res) => {
+
     try {
+      const producto = await generacionDeProducto(req.body);
+    
+
+
+
+
 
     } catch(error){
-
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO',
+            error: error
+        });
     }
 }
 
