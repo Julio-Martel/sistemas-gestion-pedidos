@@ -104,12 +104,42 @@ const crearProducto = async(req,res) => {
     try {
       const producto = await generacionDeProducto(req.body);
     
-
-
-
-
+      res.status(200).json({
+        mensaje: 'Producto creado con exito!',
+        producto: producto
+      })
 
     } catch(error){
+        if(error.message === 'INGRESE EL NOMBRE'){
+            return res.status(403).json({
+                mensaje: 'Falta el nombre'
+            })
+        }
+
+        if(error.message === 'INGRESE LA DESCRIPCION'){
+            return res.status(403).json({
+                mensaje: 'Falta la descripcion'
+            })
+        }
+
+        if(error.message === 'INGRESE EL TIPO'){
+            return res.status(403).json({
+                mensaje: 'Falta el tipo de producto'
+            })
+        }
+
+        if(error.message === 'INGRESE ID DE TIENDA'){
+            return res.status(403).json({
+                mensaje: 'Falta el id de tienda'
+            })
+        }
+
+        if(error.message === 'TIENDA NO EXISTENTE'){
+            return res.status(403).json({
+                mensaje: 'La tienda no existe'
+            })
+        }
+
         res.status(500).json({
             mensaje: 'ERROR INTERNO',
             error: error
