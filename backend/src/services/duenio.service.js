@@ -25,7 +25,6 @@ const generacionDeTienda = async(data) => {
 }
 
 const obtenerTodasLasTiendas  = async(id_usuario) => {
-    console.log(id_usuario);
 
     const tiendas = await getTiendas(id_usuario);
 
