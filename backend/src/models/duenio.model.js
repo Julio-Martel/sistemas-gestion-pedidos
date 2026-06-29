@@ -38,11 +38,21 @@ const verificarTienda = async(data) => {
 
 }
 
+const createProducto = async(data) => {
+    const [resultado] = await db.query(`INSERT INTO Productos(nombre, descripcion, tipo, id_tienda)
+        VALUES(?,?,?,?)`,
+        [data.nombre, data.descripcion, data.tipo, data.id_tienda])
+
+    return resultado;
+
+}
+
 export {
     createTienda,
     buscarPorNombreOTelefonoDireccion,
     getTiendas,
     getTienda,
-    verificarTienda
+    verificarTienda,
+    createProducto
 }
 
