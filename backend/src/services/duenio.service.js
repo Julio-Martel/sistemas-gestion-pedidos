@@ -61,6 +61,9 @@ const obtenerTiendaFiltrada = async(id_tienda,id_usuario) => {
     return filtrado;
 }
 
+const generacionDeProducto = async(data) => {
+    
+}
 
 export {
     generacionDeTienda,
