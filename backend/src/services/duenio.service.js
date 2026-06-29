@@ -59,7 +59,6 @@ const obtenerTiendaFiltrada = async(id_tienda,id_usuario) => {
     }
 
     return filtrado;
-
 }
 
 
