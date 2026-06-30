@@ -94,10 +94,15 @@ const generacionDeProducto = async(data) => {
     return productoNuevo;
 }
 
+const modificacionStockProducto = async() => {
+
+}
+
 export {
     generacionDeTienda,
     obtenerTodasLasTiendas,
     obtenerTiendaFiltrada,
-    generacionDeProducto
+    generacionDeProducto,
+    modificacionStockProducto
 }
 
