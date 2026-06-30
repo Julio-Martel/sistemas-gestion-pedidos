@@ -147,9 +147,15 @@ const crearProducto = async(req,res) => {
     }
 }
 
+const modificarStockProducto = async(req,res) => {
+
+}
+
+
 export {
     crearTienda,
     obtenerTiendas,
     filtrarTiendas,
-    crearProducto
+    crearProducto,
+    modificarStockProducto
 }
