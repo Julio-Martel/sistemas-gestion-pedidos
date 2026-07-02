@@ -148,7 +148,19 @@ const crearProducto = async(req,res) => {
 }
 
 const modificarStockProducto = async(req,res) => {
+    try {
+        const {id_producto } = req.params;
+        const {stocl_producto} = req.body;
 
+        // FUNCION PARA AVERIGUAR EXISTENCIA DEL PRODUCTO
+
+        // FUNCION PARA VERIFICAR STOCK Y ACTUALIZAR
+
+        // RESULTADO
+
+    } catch(error){
+
+    }
 }
 
 
