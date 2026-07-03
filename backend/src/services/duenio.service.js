@@ -1,5 +1,6 @@
 import { createTienda, buscarPorNombreOTelefonoDireccion, 
-    getTiendas, getTienda, verificarTienda, createProducto} from "../models/duenio.model.js";
+    getTiendas, getTienda, verificarTienda, 
+    createProducto, updateStock} from "../models/duenio.model.js";
 
 const generacionDeTienda = async(data) => {
     if(!data.nombre){
@@ -94,7 +95,14 @@ const generacionDeProducto = async(data) => {
     return productoNuevo;
 }
 
-const modificacionStockProducto = async() => {
+const modificacionStockProducto = async(id_prod, stk_prod) => {
+    const modificacion =  await updateStock(id_prod, stk_prod);
+
+    if(modificacion.length === 0){
+        throw new Error(`No existe el id o el stock es inferior a 0`);
+    }
+
+    return modificacion;
 
 }
 
