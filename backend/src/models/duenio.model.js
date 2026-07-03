@@ -56,8 +56,8 @@ const getProducto  = async(id_prod) => {
 }
 
 const updateStock = async() => {
-    const [resultado] = await db.query(`UPDATE Productos `)
-} /// AGREGAR LA LOGICA DE LA CONSULTA SQL PARA LA MODIFICACION DEL STOCK
+    const [resultado] = await db.query(`UPDATE Productos SET stock = ? WHERE id = ?`,[])
+} /// AGREGAR LA LOGICA DE LA CONSULTA SQLe PARA LA MODIFICACION DEL STOCK
 
 export {
     createTienda,
