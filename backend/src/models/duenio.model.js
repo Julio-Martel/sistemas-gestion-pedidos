@@ -55,9 +55,12 @@ const getProducto  = async(id_prod) => {
 
 }
 
-const updateStock = async() => {
-    const [resultado] = await db.query(`UPDATE Productos SET stock = ? WHERE id = ?`,[])
-} /// AGREGAR LA LOGICA DE LA CONSULTA SQLe PARA LA MODIFICACION DEL STOCK
+const updateStock = async(id_prod, stk_prod) => {
+    const [resultado] = await db.query(`UPDATE Productos 
+        SET stock = ? WHERE id = ?`,[stk_prod, id_prod]);
+
+    return resultado;
+} 
 
 export {
     createTienda,
@@ -65,6 +68,7 @@ export {
     getTiendas,
     getTienda,
     verificarTienda,
-    createProducto
+    createProducto,
+    updateStock
 }
 
