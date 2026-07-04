@@ -1,4 +1,5 @@
-import { generacionDeTienda, obtenerTodasLasTiendas, obtenerTiendaFiltrada, generacionDeProducto} from "../services/duenio.service.js"
+import { generacionDeTienda, obtenerTodasLasTiendas, 
+    obtenerTiendaFiltrada, generacionDeProducto, modificacionStockProducto} from "../services/duenio.service.js"
 
 const crearTienda = async(req,res) => {
     
@@ -150,16 +151,19 @@ const crearProducto = async(req,res) => {
 const modificarStockProducto = async(req,res) => {
     try {
         const {id_producto } = req.params;
-        const {stocl_producto} = req.body;
+        const {stock_producto} = req.body;
 
-        // FUNCION PARA AVERIGUAR EXISTENCIA DEL PRODUCTO
+        const stockModificado = await modificacionStockProducto(id_producto, stock_producto);
 
-        // FUNCION PARA VERIFICAR STOCK Y ACTUALIZAR
-
-        // RESULTADO
+        res.status(200).json({
+            mensaje: 'Stock modificado con exito!'
+        })
 
     } catch(error){
-
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO',
+            error: error
+        })
     }
 }
 
