@@ -167,7 +167,6 @@ const modificarStockProducto = async(req,res) => {
     }
 }
 
-
 export {
     crearTienda,
     obtenerTiendas,
