@@ -11,6 +11,9 @@ clientesRoutes.get('/productos', autenticarToken, permisoCliente, verProductos);
 // CREAR PEDIDO
 clientesRoutes.post('/pedidos/crear', autenticarToken, permisoCliente, crearPedido);
 
+//VER SUS PEDIDOS
+clientesRoutes.get('/pedidos/ver', autenticarToken, permisoCliente,/* AGREGAR HANDLER*/)
+
 
 
 export default clientesRoutes;
