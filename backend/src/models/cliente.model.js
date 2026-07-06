@@ -27,9 +27,17 @@ const createPedido = async(data) => {
     return resultado;
 }
 
+const getMisPedidos = async(id_cliente) => {
+    const [resultados] = await db.query(`SELECT * FROM Pedidos 
+        WHERE id_cliente = ?`, [id_cliente]);
+
+    return resultados;
+}
+
 export {
     getProductos,
     createPedido,
     getCliente,
-    getTienda
+    getTienda,
+    getMisPedidos
 }
