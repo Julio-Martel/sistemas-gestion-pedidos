@@ -1,4 +1,4 @@
-import { obtenerTodosLosProductos, generacionDePedido } from "../services/cliente.service.js"
+import { obtenerTodosLosProductos, generacionDePedido, verTodosMisPedidos } from "../services/cliente.service.js"
 
 const verProductos = async(req,res) => {
     try{
@@ -57,14 +57,33 @@ const crearPedido = async(req,res) => {
     }
 }
 
-/*
+const verMisPedidos = async(req,res) => {
+    try {
+        const pedidos = await verTodosMisPedidos(req.usuario.id);
 
-    ARREGLAR ESTO 
+        res.status(200).json({
+            mensaje: 'Sus pedidos: ',
+            pedidos: pedidos
+        })
 
+    } catch(error){
+        if(error.message === 'NO TIENES PEDIDOS EN ESTE MOMENTO'){
+            return res.status(404).json({
+                mensaje: 'No hay pedidos'
+            })
+        }
 
-*/
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO',
+            error: error
+        });
+    }
+}
+
 
 export {
     verProductos,
-    crearPedido
+    crearPedido,
+    verMisPedidos
+
 } 
