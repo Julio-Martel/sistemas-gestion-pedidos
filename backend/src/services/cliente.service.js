@@ -31,9 +31,12 @@ const generacionDePedido = async(fechaHora,id_cliente,id_tienda) => {
     return nuevoPedido;
 }
 
+const verTodosMisPedidos = async(req,res) => {
 
+}
 
 export {
     obtenerTodosLosProductos,
-    generacionDePedido    
+    generacionDePedido,
+    verTodosMisPedidos    
 }

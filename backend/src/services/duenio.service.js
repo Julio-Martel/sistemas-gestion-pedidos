@@ -98,7 +98,7 @@ const generacionDeProducto = async(data) => {
 const modificacionStockProducto = async(id_prod, stk_prod) => {
     const modificacion =  await updateStock(id_prod, stk_prod);
 
-    if(modificacion.length === 0){
+    if(modificacion.affectedRows !== 1){
         throw new Error(`No existe el id o el stock es inferior a 0`);
     }
 
