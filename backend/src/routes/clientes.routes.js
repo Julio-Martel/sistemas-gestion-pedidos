@@ -5,7 +5,10 @@ import { permisoCliente } from '../middlewares/auth.permisos.js';
 
 const clientesRoutes = express.Router();
 
+// VER TODOS LOS PRODUCTOS
 clientesRoutes.get('/productos', autenticarToken, permisoCliente, verProductos);
+
+// CREAR PEDIDO
 clientesRoutes.post('/pedidos/crear', autenticarToken, permisoCliente, crearPedido);
 
 
