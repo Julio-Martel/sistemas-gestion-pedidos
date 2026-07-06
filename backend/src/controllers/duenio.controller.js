@@ -150,7 +150,7 @@ const crearProducto = async(req,res) => {
 
 const modificarStockProducto = async(req,res) => {
     try {
-        const {id_producto } = req.params;
+        const {id_producto} = req.params;
         const {stock_producto} = req.body;
 
         const stockModificado = await modificacionStockProducto(id_producto, stock_producto);
@@ -166,6 +166,21 @@ const modificarStockProducto = async(req,res) => {
         })
     }
 }
+
+const verTodosLosProductos = async(req,res) => {
+    try {
+        const productos 
+
+
+
+    } catch(error){
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO',
+            error: error
+        })
+    }
+}
+
 
 export {
     crearTienda,
