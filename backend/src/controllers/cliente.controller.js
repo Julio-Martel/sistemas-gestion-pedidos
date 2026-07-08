@@ -26,17 +26,15 @@ const crearPedido = async(req,res) => {
     if(!req.body || Object.keys(req.body).length === 0){
         return res.send('No ha ingresado nada en el body');
     }
-
-    console.log(req.body);
         
-    const {fechaHora, id_cliente, id_tienda} = req.body;
+    const {fechaHora, id_tienda, id_producto} = req.body;
     
-    if(!fechaHora || !id_cliente || !id_tienda){
+    if(!fechaHora || !id_tienda || !id_producto){
         return res.send('Se deben mandar todos los datos');
     }
 
     try {
-        const pedido = await generacionDePedido(fechaHora,id_cliente,id_tienda);
+        const pedido = await generacionDePedido(fechaHora,req.usuario.id,id_tienda);
 
         res.status(200).json({
             mensaje: 'Su ticket: ',
