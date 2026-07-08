@@ -11,11 +11,17 @@ const obtenerTodosLosProductos = async() => {
     return productos; 
 }
 
-const generacionDePedido = async(fechaHora,id_cliente,id_tienda) => {
+const generacionDePedido = async(fechaHora,id_cliente,id_tienda, id_producto) => {
     
     const cliente = await getCliente(id_cliente);
     
     const tienda = await getTienda(id_tienda);
+
+    /*
+        AGREGAR LA COMPROBACION DE EXISTENCIA DE PRODUCTO
+    
+    */
+
 
     if(cliente.length === 0 && tienda.length === 0){
         throw new Error(`EL CLIENTE O LA TIENDA NO EXISTEN`);
@@ -32,8 +38,14 @@ const generacionDePedido = async(fechaHora,id_cliente,id_tienda) => {
     return nuevoPedido;
 }
 
-const verTodosMisPedidos = async(req,res) => {
+const verTodosMisPedidos = async(id_cliente) => {
+    const pedidos = await getMisPedidos(id_cliente);
 
+    if(pedidos.length === 0){
+        throw new Error(`NO TIENES PEDIDOS EN ESTE MOMENTO`);
+    }
+
+    return pedidos;
 }
 
 export {
