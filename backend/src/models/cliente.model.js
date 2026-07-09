@@ -34,10 +34,18 @@ const getMisPedidos = async(id_cliente) => {
     return resultados;
 }
 
+const getProducto = async(id_producto) => {
+    const [resultado] = await db.query(`SELECT * FROM Productos 
+        WHERE id = ?`, [id_producto]);
+
+    return resultado;
+}
+
 export {
     getProductos,
     createPedido,
     getCliente,
     getTienda,
-    getMisPedidos
+    getMisPedidos,
+    getProducto
 }
