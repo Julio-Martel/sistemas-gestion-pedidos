@@ -1,5 +1,5 @@
 import { getProductos, getCliente, 
-         getTienda, createPedido, getMisPedidos} from "../models/cliente.model.js"
+         getTienda, createPedido, getMisPedidos, getProducto} from "../models/cliente.model.js"
 
 const obtenerTodosLosProductos = async() => {
     const productos = await getProductos();
@@ -17,20 +17,18 @@ const generacionDePedido = async(fechaHora,id_cliente,id_tienda, id_producto) =>
     
     const tienda = await getTienda(id_tienda);
 
-    /*
-        AGREGAR LA COMPROBACION DE EXISTENCIA DE PRODUCTO
-    
-    */
+    const producto = await getProducto(id_producto);
 
 
-    if(cliente.length === 0 && tienda.length === 0){
-        throw new Error(`EL CLIENTE O LA TIENDA NO EXISTEN`);
+    if(cliente.length === 0 && tienda.length === 0 && producto.length === 0){
+        throw new Error(`EL CLIENTE O LA TIENDA O PRODUCTO NO EXISTEN`);
     }
 
     const data = {
         fechaHora: fechaHora,
         id_cliente: id_cliente,
-        id_tienda: id_tienda
+        id_tienda: id_tienda,
+        id_producto: id_producto
     }
 
     const nuevoPedido = await createPedido(data);
