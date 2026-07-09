@@ -42,9 +42,9 @@ const crearPedido = async(req,res) => {
         })        
 
     } catch(error){
-        if(error.message === 'EL CLIENTE O LA TIENDA NO EXISTEN'){
+        if(error.message === 'EL CLIENTE O LA TIENDA O PRODUCTO NO EXISTEN'){
             return res.status(404).json({
-                mensaje: 'El cliente o la tienda no existe'
+                mensaje: 'El cliente o la tienda o el producto no existen'
             })
         }
 
