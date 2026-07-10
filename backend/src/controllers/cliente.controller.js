@@ -42,6 +42,13 @@ const crearPedido = async(req,res) => {
         })        
 
     } catch(error){
+
+        if(error.message === 'DEBE SER UNA FECHA MAYOR'){
+            return res.status(404).json({
+                mensaje: 'La fecha debe ser mayor'
+            })
+        }
+
         if(error.message === 'EL CLIENTE O LA TIENDA O PRODUCTO NO EXISTEN'){
             return res.status(404).json({
                 mensaje: 'El cliente o la tienda o el producto no existen'
