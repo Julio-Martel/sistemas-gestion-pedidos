@@ -13,6 +13,12 @@ const obtenerTodosLosProductos = async() => {
 
 const generacionDePedido = async(fechaHora,id_cliente,id_tienda, id_producto) => {
     
+    const fechaActual = new Date();
+
+    if(fechaHora < fechaActual){
+        throw new Error(`DEBE SER UNA FECHA MAYOR`);
+    }
+
     const cliente = await getCliente(id_cliente);
     
     const tienda = await getTienda(id_tienda);
