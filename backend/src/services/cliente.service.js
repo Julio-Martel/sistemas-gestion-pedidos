@@ -19,8 +19,7 @@ const generacionDePedido = async(fechaHora,id_cliente,id_tienda, id_producto) =>
 
     const producto = await getProducto(id_producto);
 
-
-    if(cliente.length === 0 && tienda.length === 0 && producto.length === 0){
+    if(cliente === undefined && tienda === undefined &&  producto === undefined){
         throw new Error(`EL CLIENTE O LA TIENDA O PRODUCTO NO EXISTEN`);
     }
 
