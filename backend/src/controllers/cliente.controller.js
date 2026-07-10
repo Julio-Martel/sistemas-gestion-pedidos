@@ -34,7 +34,7 @@ const crearPedido = async(req,res) => {
     } 
 
     try {
-        const pedido = await generacionDePedido(fechaHora,req.usuario.id,id_tienda);
+        const pedido = await generacionDePedido(fecha_hora,req.usuario.id,id_tienda);
 
         res.status(200).json({
             mensaje: 'Su ticket: ',
