@@ -14,8 +14,6 @@ clientesRoutes.post('/pedidos/crear', autenticarToken, permisoCliente, crearPedi
 //VER SUS PEDIDOS
 clientesRoutes.get('/pedidos/ver', autenticarToken, permisoCliente, verMisPedidos);
 
-/* AVERIGUAR PORQUE AL QUERER CREAR UN PEDIDO
-SALE TOKEN INVALIDO */
 
 
 export default clientesRoutes;
