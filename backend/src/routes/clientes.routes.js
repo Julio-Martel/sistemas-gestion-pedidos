@@ -14,6 +14,8 @@ clientesRoutes.post('/pedidos/crear', autenticarToken, permisoCliente, crearPedi
 //VER SUS PEDIDOS
 clientesRoutes.get('/pedidos/ver', autenticarToken, permisoCliente, verMisPedidos);
 
+//CANCELAR PEDIDOS
+clientesRoutes.post('/pedidos/cancelar', autenticarToken, permisoCliente, /*AGREGAR HANDLER*/);
 
 
 export default clientesRoutes;
