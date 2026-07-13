@@ -10,14 +10,14 @@ const getCliente = async(id_cliente) => {
     const [resultados] = await db.query(`SELECT * FROM Usuarios 
         WHERE id = ?`, [id_cliente]);
 
-    return resultados;
+    return resultados[0];
 }
 
 const getTienda = async(id_tienda) => {
     const [resultados] = await db.query(`SELECT * FROM Tiendas 
         WHERE id = ?`,[id_tienda]);
 
-    return resultados;
+    return resultados[0];
 }
 
 const createPedido = async(data) => {
@@ -38,7 +38,7 @@ const getProducto = async(id_producto) => {
     const [resultado] = await db.query(`SELECT * FROM Productos 
         WHERE id = ?`, [id_producto]);
 
-    return resultado;
+    return resultado[0];
 }
 
 export {
