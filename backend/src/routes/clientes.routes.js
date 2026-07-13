@@ -1,5 +1,5 @@
 import express from 'express';
-import { verProductos, crearPedido, verMisPedidos } from '../controllers/cliente.controller.js';
+import { verProductos, crearPedido, verMisPedidos, cancelarPedido } from '../controllers/cliente.controller.js';
 import { autenticarToken } from '../middlewares/auth.token.js';
 import { permisoCliente } from '../middlewares/auth.permisos.js';
 
@@ -15,6 +15,6 @@ clientesRoutes.post('/pedidos/crear', autenticarToken, permisoCliente, crearPedi
 clientesRoutes.get('/pedidos/ver', autenticarToken, permisoCliente, verMisPedidos);
 
 //CANCELAR PEDIDOS
-clientesRoutes.patch('/pedidos/cancelar/:id', autenticarToken, permisoCliente, /*AGREGAR HANDLER*/);
+clientesRoutes.patch('/pedidos/cancelar/:id', autenticarToken, permisoCliente, cancelarPedido);
 
 export default clientesRoutes;
