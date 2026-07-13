@@ -85,12 +85,18 @@ const verMisPedidos = async(req,res) => {
     }
 }
 
+const cancelarPedido = async(req,res) => {
+    try{
 
+    } catch(error){
 
+    }
+}
 
 export {
     verProductos,
     crearPedido,
-    verMisPedidos
+    verMisPedidos,
+    cancelarPedido
 
 } 
