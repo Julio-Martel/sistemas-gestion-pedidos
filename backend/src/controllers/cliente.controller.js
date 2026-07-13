@@ -34,7 +34,7 @@ const crearPedido = async(req,res) => {
     } 
 
     try {
-        const pedido = await generacionDePedido(fecha_hora,req.usuario.id,id_tienda);
+        const pedido = await generacionDePedido(fecha_hora,req.usuario.id,id_tienda,id_producto);
 
         res.status(200).json({
             mensaje: 'Su ticket: ',
@@ -44,8 +44,8 @@ const crearPedido = async(req,res) => {
     } catch(error){
 
         if(error.message === 'DEBE SER UNA FECHA MAYOR'){
-            return res.status(404).json({
-                mensaje: 'La fecha debe ser mayor'
+            return res.status(400).json({
+                mensaje: 'La fecha del turno no puede ser anterior a la fecha y hora actual.'
             })
         }
 
@@ -84,6 +84,8 @@ const verMisPedidos = async(req,res) => {
         });
     }
 }
+
+
 
 
 export {
