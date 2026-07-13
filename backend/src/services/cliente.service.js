@@ -13,9 +13,10 @@ const obtenerTodosLosProductos = async() => {
 
 const generacionDePedido = async(fechaHora,id_cliente,id_tienda, id_producto) => {
     
+    const fechaTurno = new Date(fechaHora);
     const fechaActual = new Date();
 
-    if(fechaHora < fechaActual){
+    if(fechaTurno < fechaActual){
         throw new Error(`DEBE SER UNA FECHA MAYOR`);
     }
 
@@ -24,6 +25,7 @@ const generacionDePedido = async(fechaHora,id_cliente,id_tienda, id_producto) =>
     const tienda = await getTienda(id_tienda);
 
     const producto = await getProducto(id_producto);
+    console.log(producto)
 
     if(cliente === undefined && tienda === undefined &&  producto === undefined){
         throw new Error(`EL CLIENTE O LA TIENDA O PRODUCTO NO EXISTEN`);
@@ -33,7 +35,7 @@ const generacionDePedido = async(fechaHora,id_cliente,id_tienda, id_producto) =>
         fechaHora: fechaHora,
         id_cliente: id_cliente,
         id_tienda: id_tienda,
-        id_producto: id_producto
+        id_producto: id_producto,
     }
 
     const nuevoPedido = await createPedido(data);
