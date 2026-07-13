@@ -41,11 +41,19 @@ const getProducto = async(id_producto) => {
     return resultado[0];
 }
 
+const cancelPedido = async(id_pedido, id_cliente) => {
+    const [resultado] = await db.query(`UPDATE Pedidos 
+        WHERE id = ? AND id_cliente = ? AND estado = ?`,[id_pedido,id_cliente, 'cancelado']);
+
+    return resultado;
+}
+
 export {
     getProductos,
     createPedido,
     getCliente,
     getTienda,
     getMisPedidos,
-    getProducto
+    getProducto,
+    cancelPedido
 }
