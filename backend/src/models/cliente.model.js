@@ -43,7 +43,7 @@ const getProducto = async(id_producto) => {
 
 const cancelPedido = async(id_pedido, id_cliente) => {
     const [resultado] = await db.query(`UPDATE Pedidos 
-        WHERE id = ? AND id_cliente = ? AND estado = ?`,[id_pedido,id_cliente, 'cancelado']);
+        SET estado = 'cancelado' WHERE id = ? AND id_cliente = ? AND estado = ?`,[id_pedido,id_cliente, 'pendiente']);
 
     return resultado;
 }
