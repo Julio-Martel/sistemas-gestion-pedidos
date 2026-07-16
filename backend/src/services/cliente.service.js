@@ -1,5 +1,7 @@
 import { getProductos, getCliente, 
-         getTienda, createPedido, getMisPedidos, getProducto, cancelPedido} from "../models/cliente.model.js"
+         getTienda, createPedido, 
+         getMisPedidos, getProducto, 
+         cancelPedido} from "../models/cliente.model.js"
 
 const obtenerTodosLosProductos = async() => {
     const productos = await getProductos();
@@ -53,8 +55,19 @@ const verTodosMisPedidos = async(id_cliente) => {
     return pedidos;
 }
 
+const cancelarElPedido = async(id_pedido, id_cliente) => {
+    const pedidoCancelado = await cancelPedido(id_pedido, id_cliente);
+    
+    if(pedidoCancelado.affectedRows === 0){
+        throw new Error('NO SE PUDO CANCELAR PEDIDO');
+    }
+
+    return pedidoCancelado;
+}
+
 export {
     obtenerTodosLosProductos,
     generacionDePedido,
-    verTodosMisPedidos    
+    verTodosMisPedidos,
+    cancelarElPedido  
 }
