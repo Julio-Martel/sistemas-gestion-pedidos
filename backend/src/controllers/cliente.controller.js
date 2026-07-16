@@ -97,6 +97,12 @@ const cancelarPedido = async(req,res) => {
         })
 
     } catch(error){
+        if(error.message === 'EL ID DEL PEDIDO O DEL CLIENTE NO EXISTE, O EL PEDIDO YA FUE CANCELADO'){
+            return res.status(404).json({
+                mensaje: 'Pedido ya cancelado, o el id del pedido o cliente son incorrectos'
+            })    
+        }
+
         res.status(500).json({
             mensaje: 'ERROR INTERNO'
         })
