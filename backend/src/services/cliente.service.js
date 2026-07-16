@@ -1,5 +1,5 @@
 import { getProductos, getCliente, 
-         getTienda, createPedido, getMisPedidos, getProducto} from "../models/cliente.model.js"
+         getTienda, createPedido, getMisPedidos, getProducto, cancelPedido} from "../models/cliente.model.js"
 
 const obtenerTodosLosProductos = async() => {
     const productos = await getProductos();
