@@ -89,22 +89,23 @@ const verMisPedidos = async(req,res) => {
 
 const cancelarPedido = async(req,res) => {
     try{
-        const [id_pedido] = req.params;
-        const pedidoCancelado = await cancelarElPedido(id_pedido, req.usuario.id);
+        const {id} = req.params;
+        const pedidoCancelado = await cancelarElPedido(id, req.usuario.id);
 
         res.status(200).json({
             mensaje: 'Pedido cancelado'
         })
 
     } catch(error){
-        if(error.message === 'EL ID DEL PEDIDO O DEL CLIENTE NO EXISTE, O EL PEDIDO YA FUE CANCELADO'){
+        if(error.message === 'NO SE PUDO CANCELAR PEDIDO'){
             return res.status(404).json({
                 mensaje: 'Pedido ya cancelado, o el id del pedido o cliente son incorrectos'
             })    
         }
 
         res.status(500).json({
-            mensaje: 'ERROR INTERNO'
+            mensaje: 'ERROR INTERNO',
+            error: error
         })
     }
 }
