@@ -1,4 +1,6 @@
-import { obtenerTodosLosProductos, generacionDePedido, verTodosMisPedidos } from "../services/cliente.service.js"
+import { obtenerTodosLosProductos, 
+    generacionDePedido, verTodosMisPedidos,
+    cancelarElPedido } from "../services/cliente.service.js"
 
 const verProductos = async(req,res) => {
     try{
@@ -87,9 +89,17 @@ const verMisPedidos = async(req,res) => {
 
 const cancelarPedido = async(req,res) => {
     try{
+        const [id_pedido] = req.params;
+        const pedidoCancelado = await cancelarElPedido(id_pedido, req.usuario.id);
+
+        res.status(200).json({
+            mensaje: 'Pedido cancelado'
+        })
 
     } catch(error){
-
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO'
+        })
     }
 }
 
@@ -98,5 +108,4 @@ export {
     crearPedido,
     verMisPedidos,
     cancelarPedido
-
 } 
