@@ -1,6 +1,6 @@
 import { obtenerTodosLosProductos, 
     generacionDePedido, verTodosMisPedidos,
-    cancelarElPedido } from "../services/cliente.service.js"
+    cancelarElPedido, filtradoProducto } from "../services/cliente.service.js"
 
 const verProductos = async(req,res) => {
     try{
@@ -25,7 +25,27 @@ const verProductos = async(req,res) => {
 }
 
 const filtrarProducto = async(req,res) => {
+    try {
+        const {id} = req.params;
+        const productoFiltrado = await filtradoProducto(id);
 
+        res.status(200).json({
+            producto: productoFiltrado
+        })
+
+    } catch(error){
+        if(error.message === 'PRODUCTO INEXISTENTE'){
+            return res.status(404).json({
+                mensaje: 'El id de ese producto no existe'
+            });
+        }
+        
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO',
+            error: error
+        })
+    
+    }
 }
 
 const crearPedido = async(req,res) => {
