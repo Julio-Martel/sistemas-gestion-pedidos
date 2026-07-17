@@ -13,6 +13,16 @@ const obtenerTodosLosProductos = async() => {
     return productos; 
 }
 
+const filtradoProducto = async(id_producto) => {
+    const productoFiltrado = await getProducto(id_producto);
+
+    if(productoFiltrado === undefined){
+        throw new Error(`PRODUCTO INEXISTENTE`);
+    }
+
+    return productoFiltrado;
+}
+
 const generacionDePedido = async(fechaHora,id_cliente,id_tienda, id_producto) => {
     
     const fechaTurno = new Date(fechaHora);
@@ -69,5 +79,6 @@ export {
     obtenerTodosLosProductos,
     generacionDePedido,
     verTodosMisPedidos,
-    cancelarElPedido  
+    cancelarElPedido,
+    filtradoProducto
 }
