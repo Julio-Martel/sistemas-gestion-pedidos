@@ -24,6 +24,10 @@ const verProductos = async(req,res) => {
     }
 }
 
+const filtrarProducto = async(req,res) => {
+
+}
+
 const crearPedido = async(req,res) => {
     if(!req.body || Object.keys(req.body).length === 0){
         return res.send('No ha ingresado nada en el body');
@@ -112,6 +116,7 @@ const cancelarPedido = async(req,res) => {
 
 export {
     verProductos,
+    filtrarProducto,
     crearPedido,
     verMisPedidos,
     cancelarPedido
