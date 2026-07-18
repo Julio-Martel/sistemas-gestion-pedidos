@@ -1,13 +1,17 @@
 import { getProductos, getCliente, 
          getTienda, createPedido, 
          getMisPedidos, getProducto, 
-         cancelPedido} from "../models/cliente.model.js"
+         cancelPedido, getProductosTipo} from "../models/cliente.model.js"
 
-const obtenerTodosLosProductos = async() => {
-    const productos = await getProductos();
+const obtenerTodosLosProductos = async(tipo) => {
+    let productos;
+
+    if(tipo){
+       productos = await getProductos(tipo); 
+    }
 
     if(productos.length === 0){
-        throw new Error(`NO EXISTEN PRODUCTOS`);
+        throw new Error(`NO EXISTEN PRODUCTOS O DE ESA CATEGORIA`);
     }
 
     return productos; 
