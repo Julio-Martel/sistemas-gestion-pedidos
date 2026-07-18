@@ -6,12 +6,14 @@ import { getProductos, getCliente,
 const obtenerTodosLosProductos = async(tipo) => {
     let productos;
 
-    if(tipo){
-       productos = await getProductos(tipo); 
-    }
+    if(tipo !== undefined){
+       productos = await getProductosTipo(tipo); 
+    } else {
+        productos = await getProductos();
 
-    if(productos.length === 0){
-        throw new Error(`NO EXISTEN PRODUCTOS O DE ESA CATEGORIA`);
+        if(productos.length === 0){
+            throw new Error(`NO EXISTEN PRODUCTOS O DE ESA CATEGORIA`);
+        }
     }
 
     return productos; 
