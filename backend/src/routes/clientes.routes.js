@@ -6,10 +6,10 @@ import { permisoCliente } from '../middlewares/auth.permisos.js';
 const clientesRoutes = express.Router();
 
 // VER TODOS LOS PRODUCTOS
-clientesRoutes.get('/productos', autenticarToken, permisoCliente, verProductos);
+clientesRoutes.get('/productos', /*autenticarToken, permisoCliente,*/ verProductos);
 
 // FILTRAR POR ID DE PRODUCTO
-clientesRoutes.get('productos/:id', autenticarToken, permisoCliente, filtrarProducto);
+clientesRoutes.get('/productos/:id', autenticarToken, permisoCliente, filtrarProducto);
 
 // CREAR PEDIDO
 clientesRoutes.post('/pedidos/crear', autenticarToken, permisoCliente, crearPedido);
