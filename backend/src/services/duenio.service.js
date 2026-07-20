@@ -106,11 +106,19 @@ const modificacionStockProducto = async(id_prod, stk_prod) => {
 
 }
 
+const confirmacionDelPedido = async(id_prod) => {
+
+}
+
+
+
 export {
     generacionDeTienda,
     obtenerTodasLasTiendas,
     obtenerTiendaFiltrada,
     generacionDeProducto,
-    modificacionStockProducto
+    modificacionStockProducto,
+    confirmacionDelPedido
+
 }
 
