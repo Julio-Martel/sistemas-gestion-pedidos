@@ -21,4 +21,8 @@ duenioRoutes.post('/productos/crear', autenticarToken, permisoDuenio, crearProdu
 //MODIFICACION DE STOCK
 duenioRoutes.post('/productos/modificar/:id', autenticarToken, permisoDuenio, modificarStockProducto);
 
+//CONFIRMACION DE PEDIDOS
+duenioRoutes.patch('/productos/confirmar/:id', autenticarToken, permisoDuenio, /*AGREGAR HANDLER DE CONFIRMACION DE PEDIDO*/)
+
+
 export default duenioRoutes;
