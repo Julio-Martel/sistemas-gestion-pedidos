@@ -168,8 +168,16 @@ const modificarStockProducto = async(req,res) => {
 }
 
 const confirmacionPedido = async(req,res) => {
+    try{
+        const {id} = req.params;
 
 
+
+    } catch(error){
+        res.status(500).json({
+            mensaje: 'ERROR INTERNO'
+        })
+    }
 }
 
 export {
