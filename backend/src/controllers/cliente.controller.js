@@ -1,10 +1,12 @@
 import { obtenerTodosLosProductos, 
     generacionDePedido, verTodosMisPedidos,
-    cancelarElPedido, filtradoProducto } from "../services/cliente.service.js"
+    cancelarElPedido, filtradoProducto,  } from "../services/cliente.service.js"
 
 const verProductos = async(req,res) => {
     try{
-        const todosLosProductos = await obtenerTodosLosProductos();
+
+        const {tipo} = req.query;
+        const todosLosProductos = await obtenerTodosLosProductos(tipo);
 
         res.status(200).json({
             mensaje: 'Todos los productos',
@@ -12,7 +14,7 @@ const verProductos = async(req,res) => {
         })
 
     } catch(error){
-        if(error.message === 'NO EXISTEN PRODUCTOS'){
+        if(error.message === 'NO EXISTEN PRODUCTOS O DE ESA CATEGORIA'){
             return res.status(404).json({
                 mensaje: 'No hay productos en la base de datos'
             })
@@ -83,7 +85,7 @@ const crearPedido = async(req,res) => {
 
         res.status(500).json({
             mensaje: 'ERROR INTERNO',
-            err: error
+            error: error
         })
     }
 }

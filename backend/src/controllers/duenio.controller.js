@@ -167,10 +167,16 @@ const modificarStockProducto = async(req,res) => {
     }
 }
 
+const confirmacionPedido = async(req,res) => {
+
+
+}
+
 export {
     crearTienda,
     obtenerTiendas,
     filtrarTiendas,
     crearProducto,
-    modificarStockProducto
+    modificarStockProducto,
+    confirmacionPedido
 }

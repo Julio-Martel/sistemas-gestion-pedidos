@@ -23,7 +23,6 @@ const loginController = async(req,res) => {
             })
         }
 
-
         if(error.message === 'EMAIL NO EXISTENTE'){
             return res.status(401).json({
                 mensaje: 'El email no existe'
