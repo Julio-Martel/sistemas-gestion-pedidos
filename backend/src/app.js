@@ -8,9 +8,16 @@ const app = express();
 
 app.use(express.json());
 
+//RUTA PARA EL LOGEO
 app.use('/login', loginRouter);
+
+//RUTA PARA EL REGISTRO
 app.use('/register', registerRouter);
+
+//RUTA DEL CLIENTE
 app.use('/cliente', clientesRoutes);
+
+//RUTA DEL DUEÑO
 app.use('/duenio', duenioRoutes);
 
 export default app;
