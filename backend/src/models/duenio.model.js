@@ -62,6 +62,14 @@ const updateStock = async(id_prod, stk_prod) => {
     return resultado;
 } 
 
+const confirmPedido = async(id_prod) => {
+    const [resultado] = await db.query(`UPDATE PEDIDOS 
+        SET estado = 'confirmado' 
+        WHERE id = ? `,[id_prod]);
+
+    return resultado;
+}
+
 export {
     createTienda,
     buscarPorNombreOTelefonoDireccion,

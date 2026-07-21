@@ -6,6 +6,13 @@ const getProductos = async() => {
     return resultados;
 }
 
+const getProductosTipo = async(tipo) => {
+    const [resultados] = await db.query(`SELECT * FROM Productos
+        WHERE tipo = ?`, [tipo]);
+
+    return resultados;
+}
+
 const getCliente = async(id_cliente) => {
     const [resultados] = await db.query(`SELECT * FROM Usuarios 
         WHERE id = ?`, [id_cliente]);
@@ -52,6 +59,7 @@ const cancelPedido = async(id_pedido, id_cliente) => {
 
 export {
     getProductos,
+    getProductosTipo,
     createPedido,
     getCliente,
     getTienda,
