@@ -1,5 +1,7 @@
 import { generacionDeTienda, obtenerTodasLasTiendas, 
-    obtenerTiendaFiltrada, generacionDeProducto, modificacionStockProducto} from "../services/duenio.service.js"
+    obtenerTiendaFiltrada, 
+    generacionDeProducto, modificacionStockProducto,
+confirmacionDelPedido} from "../services/duenio.service.js"
 
 const crearTienda = async(req,res) => {
     
@@ -170,10 +172,19 @@ const modificarStockProducto = async(req,res) => {
 const confirmacionPedido = async(req,res) => {
     try{
         const {id} = req.params;
-
-
+        const pedidoConfirmado = await confirmacionDelPedido(id);
+        
+        res.status(500).json({
+            mensaje: 'Pedido confirmado con exito!'
+        })
 
     } catch(error){
+        if(error.message === 'NO SE PUEDE CONFIRMAR'){
+            return res.status(404).json({
+                mensaje: 'No se ha podido confirmar el pedido'
+            })
+        }
+
         res.status(500).json({
             mensaje: 'ERROR INTERNO'
         })
