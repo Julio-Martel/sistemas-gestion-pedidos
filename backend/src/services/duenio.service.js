@@ -1,6 +1,6 @@
 import { createTienda, buscarPorNombreOTelefonoDireccion, 
     getTiendas, getTienda, verificarTienda, 
-    createProducto, updateStock} from "../models/duenio.model.js";
+    createProducto, updateStock, confirmPedido} from "../models/duenio.model.js";
 
 const generacionDeTienda = async(data) => {
     if(!data.nombre){
@@ -106,8 +106,14 @@ const modificacionStockProducto = async(id_prod, stk_prod) => {
 
 }
 
-const confirmacionDelPedido = async(id_prod) => {
+const confirmacionDelPedido = async(id_pedido) => {
+    const pedidoConfirmado = await confirmPedido(id_pedido);
 
+    if(pedidoConfirmado.affectedRows === 0){
+        throw new Error('No se ha podido confirmar el pedido');
+    }
+
+    return pedidoConfirmado;
 }
 
 
@@ -119,6 +125,5 @@ export {
     generacionDeProducto,
     modificacionStockProducto,
     confirmacionDelPedido
-
 }
 
