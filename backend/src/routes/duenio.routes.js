@@ -2,7 +2,8 @@ import express from 'express';
 import { autenticarToken } from '../middlewares/auth.token.js';
 import { permisoDuenio } from '../middlewares/auth.permisos.js';
 import { crearTienda, obtenerTiendas, filtrarTiendas, 
-    crearProducto, modificarStockProducto } from '../controllers/duenio.controller.js';
+    crearProducto, modificarStockProducto,
+confirmacionPedido } from '../controllers/duenio.controller.js';
 
 const duenioRoutes = express.Router();
 
@@ -22,7 +23,6 @@ duenioRoutes.post('/productos/crear', autenticarToken, permisoDuenio, crearProdu
 duenioRoutes.post('/productos/modificar/:id', autenticarToken, permisoDuenio, modificarStockProducto);
 
 //CONFIRMACION DE PEDIDOS
-duenioRoutes.patch('/productos/confirmar/:id', autenticarToken, permisoDuenio, /*AGREGAR HANDLER DE CONFIRMACION DE PEDIDO*/)
-
+duenioRoutes.patch('/productos/confirmar/:id', autenticarToken, permisoDuenio, confirmacionPedido);
 
 export default duenioRoutes;
