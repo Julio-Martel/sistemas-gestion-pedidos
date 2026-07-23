@@ -106,16 +106,15 @@ const modificacionStockProducto = async(id_prod, stk_prod) => {
 
 }
 
-const confirmacionDelPedido = async(id_pedido) => {
-    const pedidoConfirmado = await confirmPedido(id_pedido);
+const confirmacionDelPedido = async(id_pedido, id_duenio) => {
+    const pedidoConfirmado = await confirmPedido(id_pedido, id_duenio);
 
     if(pedidoConfirmado.affectedRows === 0){
-        throw new Error('No se ha podido confirmar el pedido');
+        throw new Error('NO SE PUEDE CONFIRMAR');
     }
 
     return pedidoConfirmado;
 }
-
 
 
 export {
