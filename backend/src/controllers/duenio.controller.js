@@ -172,7 +172,7 @@ const modificarStockProducto = async(req,res) => {
 const confirmacionPedido = async(req,res) => {
     try{
         const {id} = req.params;
-        const pedidoConfirmado = await confirmacionDelPedido(id);
+        const pedidoConfirmado = await confirmacionDelPedido(id,req.usuario.id);
         
         res.status(500).json({
             mensaje: 'Pedido confirmado con exito!'
