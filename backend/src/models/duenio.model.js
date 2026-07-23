@@ -62,13 +62,20 @@ const updateStock = async(id_prod, stk_prod) => {
     return resultado;
 } 
 
-const confirmPedido = async(id_pedido) => {
-    const [resultado] = await db.query(`UPDATE PEDIDOS 
-        SET estado = 'confirmado' 
-        WHERE id = ? `,[id_pedido]);
+const confirmPedido = async(id_pedido, id_duenio) => {
+    const [resultado] = await db.query(`UPDATE PEDIDOS p
+        JOIN TIENDAS t ON p.id_tienda = t.id
+        SET p.estado = 'confirmado'
+        WHERE p.id = ? AND
+        t.id_duenio = ?
+        AND p.estado = 'pendiente' `
+        ,[id_pedido,'pendiente', id_duenio]);
 
     return resultado;
 }
+
+
+
 
 export {
     createTienda,
