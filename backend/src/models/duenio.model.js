@@ -74,7 +74,10 @@ const confirmPedido = async(id_pedido, id_duenio) => {
     return resultado;
 }
 
+/* 
+    AGREGAR EL DESCUENTO DEL STOCK
 
+*/
 
 
 export {
