@@ -63,6 +63,7 @@ const updateStock = async(id_prod, stk_prod) => {
 } 
 
 const confirmPedido = async(id_pedido, id_duenio) => {
+     
     const [resultado] = await db.query(`UPDATE PEDIDOS p
         JOIN TIENDAS t ON p.id_tienda = t.id
         SET p.estado = 'confirmado'
@@ -73,12 +74,6 @@ const confirmPedido = async(id_pedido, id_duenio) => {
 
     return resultado;
 }
-
-/* 
-    AGREGAR EL DESCUENTO DEL STOCK
-
-*/
-
 
 export {
     createTienda,
