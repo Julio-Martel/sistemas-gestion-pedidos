@@ -107,6 +107,7 @@ const modificacionStockProducto = async(id_prod, stk_prod) => {
 }
 
 const confirmacionDelPedido = async(id_pedido, id_duenio) => {
+
     const pedidoConfirmado = await confirmPedido(id_pedido, id_duenio);
 
     if(pedidoConfirmado.affectedRows === 0){
