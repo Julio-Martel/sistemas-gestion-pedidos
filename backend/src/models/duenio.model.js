@@ -68,7 +68,7 @@ const confirmPedido = async(id_pedido, id_duenio) => {
         SET p.estado = 'confirmado'
         WHERE p.id = ? AND
         t.id_duenio = ?
-        AND p.estado = 'pendiente' `
+        AND p.estado = ? `
         ,[id_pedido,'pendiente', id_duenio]);
 
     return resultado;

@@ -3,7 +3,7 @@ import { autenticarToken } from '../middlewares/auth.token.js';
 import { permisoDuenio } from '../middlewares/auth.permisos.js';
 import { crearTienda, obtenerTiendas, filtrarTiendas, 
     crearProducto, modificarStockProducto,
-confirmacionPedido } from '../controllers/duenio.controller.js';
+    confirmacionPedido } from '../controllers/duenio.controller.js';
 
 const duenioRoutes = express.Router();
 
